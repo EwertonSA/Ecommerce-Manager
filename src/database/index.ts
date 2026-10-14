@@ -6,6 +6,6 @@ export const sequelize= new Sequelize({
     port:5432,
     database:'ECommerce',
     username:'postgres',
-    password:'ewerton.raquel',
+    password:'MALVADAPINGA',
     define:{underscored:true}
 })
