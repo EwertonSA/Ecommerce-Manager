@@ -1,5 +1,5 @@
 import { ResourceWithOptions } from "adminjs";
-import { Address, Category, Customer, Order, Product } from "../../models";
+import { Address, Category, Customer, Order, Product, User } from "../../models";
 import { CategoryResourceOptions } from "./category";
 import { ProductResourceFeatures, ProductResourceOptions } from "./product";
 import { CustomerResourceOptions } from "./customer";
@@ -7,6 +7,7 @@ import { addressResourceOptions } from "./address";
 import { OrderResourceOptions } from "./order";
 import { OrderItems } from "../../models/OrderItems";
 import { orderItemsResourceOptions } from "./orderItems";
+import { UserResourceOptions } from "./user";
 
 export const adminjsResources:ResourceWithOptions[]=[
 {resource:Category, options:CategoryResourceOptions},
@@ -14,5 +15,6 @@ export const adminjsResources:ResourceWithOptions[]=[
 {resource:Customer, options:CustomerResourceOptions},
 {resource:Address, options:addressResourceOptions},
 {resource:Order, options:OrderResourceOptions},
-{resource:OrderItems, options:orderItemsResourceOptions}
+{resource:OrderItems, options:orderItemsResourceOptions},
+{resource:User, options:UserResourceOptions}
 ]

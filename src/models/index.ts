@@ -4,7 +4,7 @@ import { Customer } from "./Customers"
 import { Order } from "./Order"
 import { OrderItems } from "./OrderItems"
 import { Product } from "./Product"
-
+import { User } from "./Users"
 Category.hasMany(Product) 
 Product.belongsTo(Category)
 Product.hasMany(OrderItems)
@@ -23,5 +23,5 @@ OrderItems.belongsTo(Order)
 OrderItems.belongsTo(Product)
 
 export{
-Category, Product, Customer, Order, Address
+Category, Product, Customer, Order, Address, User
 }

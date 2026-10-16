@@ -1,6 +1,6 @@
 import { DataTypes, Model, Optional } from "sequelize"
 import { sequelize } from "../database"
-
+import bcrypt from 'bcrypt'
 export interface CustomerAttributes{
 id:number
 name:string
