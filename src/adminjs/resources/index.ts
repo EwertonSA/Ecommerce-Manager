@@ -5,11 +5,14 @@ import { ProductResourceOptions } from "./product";
 import { CustomerResourceOptions } from "./customer";
 import { addressResourceOptions } from "./address";
 import { OrderResourceOptions } from "./order";
+import { OrderItems } from "../../models/OrderItems";
+import { orderItemsResourceOptions } from "./orderItems";
 
 export const adminjsResources:ResourceWithOptions[]=[
 {resource:Category, options:CategoryResourceOptions},
 {resource:Product, options:ProductResourceOptions},
 {resource:Customer, options:CustomerResourceOptions},
 {resource:Address, options:addressResourceOptions},
-{resource:Order, options:OrderResourceOptions}
+{resource:Order, options:OrderResourceOptions},
+{resource:OrderItems, options:orderItemsResourceOptions}
 ]
