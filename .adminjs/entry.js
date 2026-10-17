@@ -5,3 +5,5 @@ import UploadListComponent from '../node_modules/@adminjs/upload/build/features/
 AdminJS.UserComponents.UploadListComponent = UploadListComponent
 import UploadShowComponent from '../node_modules/@adminjs/upload/build/features/upload-file/components/UploadShowComponent'
 AdminJS.UserComponents.UploadShowComponent = UploadShowComponent
+import Dashboard from '../src/adminjs/Components/Dashboard'
+AdminJS.UserComponents.Dashboard = Dashboard
