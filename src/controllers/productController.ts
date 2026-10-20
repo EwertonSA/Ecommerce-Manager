@@ -1,0 +1,24 @@
+import { Request, Response } from "express";
+import { productService } from "../services/productService";
+
+export const productController={
+index:async(req:Request,res:Response)=>{
+try {
+const product=await productService.getProducts()
+res.json(product)   
+} catch (error) {
+if(error instanceof Error) return res.status(400).json({message:error.message})    
+}    
+},
+show:async(req:Request,res:Response)=>{
+const {id}=req.params
+try {
+const productId=Number(id)
+const product=await productService.findById(productId)
+res.json(product)   
+} catch (error) {
+if(error instanceof Error)return res.status(400).json({message:error.message})  
+}
+ 
+}    
+}
