@@ -5,7 +5,7 @@ import { Order } from "./Order"
 import { OrderItems } from "./OrderItems"
 import { Product } from "./Product"
 import { User } from "./Users"
-Category.hasMany(Product) 
+Category.hasMany(Product, {as:'products'}) 
 Product.belongsTo(Category)
 Product.hasMany(OrderItems)
 
