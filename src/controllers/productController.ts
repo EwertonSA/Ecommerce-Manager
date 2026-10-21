@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { productService } from "../services/productService";
+import { Product } from "../models";
 
 export const productController={
 index:async(req:Request,res:Response)=>{
@@ -27,5 +28,13 @@ return res.json(products)
 } catch (error) {
 if(error instanceof Error) return res.status(400).json({message:error.message})
 }    
-}    
+},
+newest:async(req:Request,res:Response)=>{
+try {
+const product= await productService.getnewest()
+return res.json(product)
+} catch (error) {
+if(error instanceof Error) return res.status(400).json({message:error.message})    
+}
+}   
 }

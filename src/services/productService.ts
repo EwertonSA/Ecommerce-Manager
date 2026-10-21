@@ -19,4 +19,9 @@ order:[[fn("COALESCE", fn('SUM', col('orderItems.quantity')),0),'DESC']],
 limit:5, subQuery: false
 })
 return products
-}}
+},
+getnewest:async()=>{
+const products= await Product.findAll({limit:10,order:[['createdAt','DESC']]})
+return products
+} 
+}

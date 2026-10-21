@@ -8,4 +8,5 @@ router.get('/categories/:id',categoriesController.show)
 //products
 router.get('/products',productController.index)
 router.get('/products/selled',productController.bestSelling)
+router.get('/products/newest',productController.newest)
 router.get('/products/:id',productController.show)
