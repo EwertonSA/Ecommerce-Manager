@@ -14,3 +14,4 @@ router.get('/products/search',productController.search)
 router.get('/products/:id',productController.show)
 
 router.post('/auth/register',userController.register)
+router.post("/auth/login",userController.login)
