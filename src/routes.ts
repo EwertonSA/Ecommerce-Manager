@@ -7,4 +7,5 @@ router.get('/categories',categoriesController.index)
 router.get('/categories/:id',categoriesController.show)
 //products
 router.get('/products',productController.index)
+router.get('/products/selled',productController.bestSelling)
 router.get('/products/:id',productController.show)

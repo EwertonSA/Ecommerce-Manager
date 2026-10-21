@@ -19,6 +19,13 @@ res.json(product)
 } catch (error) {
 if(error instanceof Error)return res.status(400).json({message:error.message})  
 }
- 
+},
+bestSelling:async(req:Request,res:Response)=>{
+try {
+const products=await productService.getSelling()
+return res.json(products)   
+} catch (error) {
+if(error instanceof Error) return res.status(400).json({message:error.message})
+}    
 }    
 }
