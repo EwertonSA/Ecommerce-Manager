@@ -1,4 +1,4 @@
-import { fn, col, Sequelize } from "sequelize"
+import { fn, col, Op } from "sequelize"
 import { Product } from "../models"
 
 export const productService={
@@ -23,5 +23,13 @@ return products
 getnewest:async()=>{
 const products= await Product.findAll({limit:10,order:[['createdAt','DESC']]})
 return products
-} 
+},
+findByName:async(name:string,page:number,perPage:number)=>{
+const offset=(page-1)*perPage
+const {rows,count}= await Product.findAndCountAll({
+attributes:['id','name','description','price',['stock_quantity','stockQuantity'],'thumbnail'],
+where:{name:{[Op.iLike]:`%${name}%`}}, limit:perPage,offset    
+})
+return{products:rows, page, perPage, total:count}
+}
 }

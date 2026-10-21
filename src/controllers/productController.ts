@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { productService } from "../services/productService";
 import { Product } from "../models";
+import { getPagination } from "../helpers/getPagination";
 
 export const productController={
 index:async(req:Request,res:Response)=>{
@@ -36,5 +37,16 @@ return res.json(product)
 } catch (error) {
 if(error instanceof Error) return res.status(400).json({message:error.message})    
 }
-}   
+},
+search:async(req:Request,res:Response)=>{
+const {name}=req.query
+const [page,perPage]=getPagination(req.query)
+try {
+if(typeof name !=='string')return res.status(400).json({message:'Valor Inválido'})    
+const product= await productService.findByName(name,page,perPage)    
+return res.json(product)
+} catch (error) {
+if(error instanceof Error) return res.status(400).json({message:error.message})    
+}    
+}
 }
