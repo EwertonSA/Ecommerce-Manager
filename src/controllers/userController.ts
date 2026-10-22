@@ -49,5 +49,19 @@ return res.json(user)
 } catch (error) {
 if(error instanceof Error) return res.status(400).json({message:error.message})      
 }
+},
+updatePassword:async(req:authenticatedRequest,res:Response)=>{
+const user=req.user!
+const {currentPassword, newPassword}=req.body
+try {
+user.checkPassword(currentPassword,async(error,isSame)=>{
+if(error)res.status(400).json({message:error.message})
+if(!isSame)res.status(400).json({message:"Senha Incorreta"})
+await userService.updatePassword(user.id, newPassword)
+return res.status(201).send()
+})   
+} catch (error) {
+if(error instanceof Error) return res.status(400).json({message:error.message})      
+}
 }
 }

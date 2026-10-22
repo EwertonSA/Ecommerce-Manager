@@ -16,6 +16,7 @@ router.get('/products/:id',ensureAuth,productController.show)
 
 router.get('/users/current',ensureAuth,userController.show)
 router.put('/users/current',ensureAuth,userController.update)
+router.put('/users/current/password',ensureAuth,userController.updatePassword)
 
 router.post('/auth/register',userController.register)
 router.post("/auth/login",userController.login)

@@ -13,5 +13,9 @@ create:async(attributes:UserCreationAttributes)=>{
 update:async(id:number, attributes:{name:string, email:string})=>{
 const [rows,updated]=await User.update(attributes,{where:{id},returning:true})
 return updated[0]
+},
+updatePassword:async(id:number,password:string)=>{
+const[rows,updated]=await User.update({password},{where:{id},individualHooks:true,returning:true})
+return updated[0]
 }
 }
