@@ -14,5 +14,8 @@ router.get('/products/newest',ensureAuth,productController.newest)
 router.get('/products/search',ensureAuth,productController.search)
 router.get('/products/:id',ensureAuth,productController.show)
 
+router.get('/users/current',ensureAuth,userController.show)
+router.put('/users/current',ensureAuth,userController.update)
+
 router.post('/auth/register',userController.register)
 router.post("/auth/login",userController.login)

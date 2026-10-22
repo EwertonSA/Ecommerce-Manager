@@ -9,5 +9,9 @@ return user
 create:async(attributes:UserCreationAttributes)=>{
  const user=await User.create(attributes)
  return user  
+},
+update:async(id:number, attributes:{name:string, email:string})=>{
+const [rows,updated]=await User.update(attributes,{where:{id},returning:true})
+return updated[0]
 }
 }
